@@ -58,6 +58,8 @@ router.post("/scrape", function(req, res) {
       result.title = $(this).children("a").text();
 
       console.log("What's the result title? " + result.title);
+
+      result.summary = $(this).children("p").text();
       
       result.link = $(this).children("a").attr("href");
 
@@ -83,6 +85,8 @@ router.post("/save", function(req, res) {
   var newArticleObject = {};
 
   newArticleObject.title = req.body.title;
+
+  newArticleObject.summary = req.body.summary
 
   newArticleObject.link = req.body.link;
 

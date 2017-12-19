@@ -10,6 +10,10 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  summary: {
+    type: String,
+    required: true
+  },
   // link is a required string
   // todo save summary paragraph instead of link
   link: {
