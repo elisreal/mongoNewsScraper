@@ -37,7 +37,7 @@ var routes = require("./controllers/scraper_controller.js");
 
 app.use("/", routes);
 
-mongoose.connect("mongodb://elisreal:Abacabb5615!@ds161146.mlab.com:61146/allthenews9021u78");
+mongoose.connect("mongodb://elisreal:allthenews@ds161146.mlab.com:61146/allthenews9021u78");
 
 var db = mongoose.connection;
 
