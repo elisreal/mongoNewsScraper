@@ -10,6 +10,7 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  //summary is a required string
   summary: {
     type: String,
     required: true
