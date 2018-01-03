@@ -1,11 +1,8 @@
+//dependencies
 var express = require("express");
-
 var router = express.Router();
-
 var request = require("request");
-
 var cheerio = require("cheerio");
-
 var mongoose = require("mongoose");
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
@@ -38,7 +35,7 @@ router.get("/savedarticles", function(req, res) {
   });
 });
 
-// A GET request to scrape the echojs website
+// A GET request to scrape the nyt website
 router.post("/scrape", function(req, res) {
 
   // First, we grab the body of the html with request
@@ -46,8 +43,10 @@ router.post("/scrape", function(req, res) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
 
-    // Make emptry array for temporarily saving and showing scraped Articles.
+    // Make empty array for temporarily saving and showing scraped Articles.
     var scrapedArticles = {};
+
+
     // Now, we grab every h2 within an article tag, and do the following:
     $("article h2").each(function(i, element) {
 
@@ -98,7 +97,8 @@ router.post("/save", function(req, res) {
     }
     // Or log the doc
     else {
-      console.log(doc);
+      console.log(entry.doc);
+      entry.doc();
     }
   });
 
